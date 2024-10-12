@@ -5,6 +5,7 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class ItemsModel(
+    var itemId:String="",
     var title:String="",
     var description:String="",
     var picUrl:ArrayList<String>  = ArrayList(),
@@ -19,6 +20,7 @@ data class ItemsModel(
     constructor(parcel: Parcel) : this(
         parcel.readString().toString(),
         parcel.readString().toString(),
+        parcel.readString().toString(),
         parcel.createStringArrayList() as ArrayList<String>,
         parcel.createStringArrayList() as ArrayList<String>,
         parcel.readDouble(),
@@ -30,6 +32,7 @@ data class ItemsModel(
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(itemId)
         parcel.writeString(title)
         parcel.writeString(description)
         parcel.writeStringList(picUrl)

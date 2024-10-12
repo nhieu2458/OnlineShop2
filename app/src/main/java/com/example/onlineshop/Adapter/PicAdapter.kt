@@ -1,5 +1,6 @@
 package com.example.onlineshop.Adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -25,7 +26,8 @@ class PicAdapter(val items:MutableList<String>, private val onImageSelected:(Str
         return Viewholder(binding)
     }
 
-    override fun onBindViewHolder(holder: PicAdapter.Viewholder, position: Int) {
+    @SuppressLint("SuspiciousIndentation")
+    override fun onBindViewHolder(holder: PicAdapter.Viewholder, @SuppressLint("RecyclerView") position: Int) {
         val item = items[position]
             holder.binding.pic.loadImage(item)
 
